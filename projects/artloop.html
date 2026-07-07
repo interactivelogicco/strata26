@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArtLoop — Strata26</title>
+<meta name="description" content="ArtLoop is a private community platform that helps artists, organizations, and creative groups share work in progress and strengthen local creative communities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@800;900&family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --nav-stone:#FBFBF9;
+    --stone-section:#FBFBF9;
+    --graphite:#28282C;
+    --mid:#6F6E69;
+    --gold:#B8912F;
+    --gold-dark:#9A7620;
+    --hairline:#E5E2DA;
+    --sans:'Schibsted Grotesk',system-ui,sans-serif;
+    --serif:'Instrument Serif',Georgia,serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--white);
+    color:var(--graphite);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--nav-stone);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .wordmark{
+    display:inline-flex;
+    align-items:center;
+    text-decoration:none;
+    line-height:0;
+  }
+  .wordmark-logo{display:block;height:40px;width:auto}
+  .nav-links{display:flex;gap:32px}
+  .nav-links a{
+    color:var(--gold);text-decoration:none;font-size:.875rem;font-weight:500;
+    transition:color .2s;
+  }
+  .nav-links a:hover,.nav-links a:focus-visible{color:var(--gold-dark)}
+  a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+  /* ---------- Product page ---------- */
+  .product-hero{
+    padding:72px 0 64px;
+    background:var(--white);
+  }
+  .product-hero__top{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;margin-bottom:20px;
+  }
+  .layer-id{
+    font-size:.72rem;font-weight:600;letter-spacing:.12em;
+    color:var(--mid);
+  }
+  .badge{
+    font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    padding:4px 12px;border-radius:99px;
+    white-space:nowrap;
+  }
+  .badge-dev{border:1px dashed var(--mid);color:var(--mid)}
+  .badge-concept{border:1px dashed var(--mid);color:var(--mid)}
+  .product-hero h1{
+    font-size:clamp(2.2rem,5vw,3.2rem);
+    font-weight:600;
+    letter-spacing:-.02em;
+    line-height:1.05;
+    margin-bottom:12px;
+  }
+  .product-category{
+    font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:24px;
+  }
+  .product-intro{
+    max-width:52ch;
+    color:var(--mid);
+    font-size:1.125rem;
+    margin-bottom:32px;
+  }
+  .product-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;
+    padding:12px 26px;
+    border-radius:6px;
+    font-size:.9rem;font-weight:600;
+    text-decoration:none;
+    transition:transform .15s,box-shadow .15s;
+  }
+  .btn-primary{background:var(--graphite);color:var(--white)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(40,40,44,.18)}
+  .btn-ghost{
+    color:var(--graphite);
+    border:1px solid var(--hairline);
+    background:transparent;
+  }
+  .btn-ghost:hover{border-color:var(--graphite)}
+
+  section{padding:88px 0;border-top:1px solid var(--hairline)}
+  .stone{background:var(--stone-section)}
+  h2{font-size:1.6rem;font-weight:600;letter-spacing:-.01em;margin-bottom:20px}
+  .section-copy{color:var(--mid);max-width:62ch}
+  .section-copy p{margin-bottom:16px}
+  .section-copy p:last-child{margin-bottom:0}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:48px;
+  }
+  .card{
+    background:var(--white);
+    border:1px solid var(--hairline);
+    border-radius:10px;
+    padding:32px 28px 28px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .stone .card{background:var(--white)}
+  .card h3{font-size:1.35rem;font-weight:600;letter-spacing:-.01em}
+  .card p{color:var(--mid);font-size:.95rem;max-width:52ch}
+
+  .status-block{display:flex;flex-direction:column;gap:28px;margin-top:8px}
+  .status-row{display:flex;flex-direction:column;gap:6px}
+  .status-label{
+    font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--mid);
+  }
+  .status-value{font-weight:600;color:var(--graphite)}
+  .roadmap{
+    list-style:none;
+    display:flex;flex-direction:column;gap:10px;
+    margin-top:4px;
+  }
+  .roadmap__item{
+    font-size:.95rem;
+    color:var(--mid);
+    padding-left:20px;
+    position:relative;
+  }
+  .roadmap__item::before{
+    content:"";
+    position:absolute;left:0;top:.55em;
+    width:8px;height:8px;border-radius:50%;
+    background:var(--hairline);
+  }
+  .roadmap__item--complete{color:var(--graphite)}
+  .roadmap__item--complete::before{background:var(--gold)}
+  .roadmap__item--current{font-weight:600;color:var(--graphite)}
+  .roadmap__item--current::before{background:var(--graphite)}
+
+  .tech-list{
+    list-style:none;
+    display:flex;flex-wrap:wrap;gap:12px;
+    margin-top:8px;
+  }
+  .tech-list li{
+    font-size:.875rem;font-weight:600;
+    color:var(--graphite);
+    padding:8px 16px;
+    border:1px solid var(--hairline);
+    border-radius:6px;
+    background:var(--white);
+  }
+
+  .contact{text-align:center;padding:100px 0}
+  .contact h2{font-size:2rem;margin-bottom:12px}
+  .contact p{color:var(--mid);margin-bottom:32px;max-width:48ch;margin-left:auto;margin-right:auto}
+
+  footer{
+    background:var(--stone-section);
+    border-top:1px solid var(--hairline);
+    padding:32px 0;
+  }
+  .foot-inner{
+    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+    font-size:.8rem;color:var(--mid);
+  }
+  .foot-strata{display:flex;flex-direction:column;gap:3px;width:64px}
+  .foot-strata i{display:block;height:1px;background:var(--hairline)}
+  .foot-strata i:nth-child(2){width:80%}
+  .foot-strata i:nth-child(3){width:60%;background:var(--gold)}
+
+  @media (max-width:760px){
+    .grid{grid-template-columns:1fr}
+    section{padding:64px 0}
+    .product-hero{padding:56px 0 48px}
+    .nav-links{gap:20px}
+    .nav-links a:nth-child(3){display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="../strata26.html">
+      <img class="wordmark-logo" src="../images/Stratalogo.png" alt="Strata26" width="80" height="40">
+    </a>
+    <div class="nav-links">
+      <a href="../strata26.html#projects">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Product hero — template: swap title, category, badge, intro, layer-id -->
+<section class="product-hero">
+  <div class="wrap">
+    <div class="product-hero__top">
+      <span class="layer-id">S-02</span>
+      <span class="badge badge-dev">In Development</span>
+    </div>
+    <h1>ArtLoop</h1>
+    <p class="product-category">Creative Community Platform</p>
+    <p class="product-intro">ArtLoop is a private community platform that helps artists, organizations, and creative groups share works in progress, foster meaningful conversations, and strengthen local creative communities.</p>
+    <div class="product-cta">
+      <a class="btn btn-primary" href="../strata26.html#projects">Back to projects</a>
+      <a class="btn btn-ghost" href="mailto:hellostrata26@gmail.com">Follow progress</a>
+    </div>
+  </div>
+</section>
+
+<!-- Overview — template: heading + copy -->
+<section>
+  <div class="wrap">
+    <h2>Built for creative communities.</h2>
+    <div class="section-copy">
+      <p>ArtLoop was designed to give creative communities a calm, focused place to gather online. Instead of chasing algorithms and engagement metrics, it encourages thoughtful discussion, works in progress, events, and lasting relationships between artists and organizations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Core features — template: feature cards grid -->
+<section class="stone">
+  <div class="wrap">
+    <h2>Core features</h2>
+    <div class="grid">
+
+      <article class="card">
+        <h3>Private Communities</h3>
+        <p>Create invite-only communities where members can safely share ideas and creative work.</p>
+      </article>
+
+      <article class="card">
+        <h3>Work in Progress</h3>
+        <p>Post artwork, writing, music, photography, or other creative projects for feedback throughout the creative process.</p>
+      </article>
+
+      <article class="card">
+        <h3>Events &amp; Gatherings</h3>
+        <p>Share exhibitions, workshops, open studios, and community events in one place.</p>
+      </article>
+
+      <article class="card">
+        <h3>Conversations</h3>
+        <p>Encourage meaningful discussions without the distractions of traditional social media.</p>
+      </article>
+
+      <article class="card">
+        <h3>Creative Profiles</h3>
+        <p>Give every member a simple profile that highlights their work and community involvement.</p>
+      </article>
+
+      <article class="card">
+        <h3>Moderation Tools</h3>
+        <p>Provide administrators with thoughtful tools that keep communities welcoming and organized.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Development status — template: status, milestone, roadmap -->
+<section>
+  <div class="wrap">
+    <h2>Development status</h2>
+    <div class="status-block">
+      <div class="status-row">
+        <span class="status-label">Status</span>
+        <span class="status-value">In Development</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Current milestone</span>
+        <span class="status-value">Building the private community MVP.</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Roadmap</span>
+        <ul class="roadmap">
+          <li class="roadmap__item roadmap__item--complete">Research</li>
+          <li class="roadmap__item roadmap__item--complete">Architecture</li>
+          <li class="roadmap__item roadmap__item--complete">Security Design</li>
+          <li class="roadmap__item roadmap__item--current">MVP Development</li>
+          <li class="roadmap__item">Pilot Community</li>
+          <li class="roadmap__item">Public Launch</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Design philosophy — template: heading + copy -->
+<section class="stone">
+  <div class="wrap">
+    <h2>Designed for real communities.</h2>
+    <div class="section-copy">
+      <p>ArtLoop focuses on connection instead of engagement metrics. It was built to help creative people share ideas, encourage one another, and build stronger local communities without the noise of traditional social platforms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Built With — template: tech stack list -->
+<section>
+  <div class="wrap">
+    <h2>Built With</h2>
+    <div class="section-copy">
+      <p>Built with React, TypeScript, Supabase, and Vite.</p>
+    </div>
+    <ul class="tech-list">
+      <li>React</li>
+      <li>TypeScript</li>
+      <li>Supabase</li>
+      <li>Vite</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Footer CTA — template: product-specific follow copy -->
+<section id="contact" class="contact stone">
+  <div class="wrap">
+    <h2>Follow the journey.</h2>
+    <p>Building software takes time. Follow along as ArtLoop grows one thoughtful layer at a time.</p>
+    <a class="btn btn-primary" href="mailto:hellostrata26@gmail.com">hellostrata26@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 Strata26. All rights reserved.</span>
+    <div class="foot-strata" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+</footer>
+
+</body>
+</html>

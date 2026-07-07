@@ -215,6 +215,12 @@
     box-shadow:0 12px 32px rgba(40,40,44,.07);
     border-color:#D8D4C9;
   }
+  .card--linked{cursor:pointer}
+  .card__link{
+    position:absolute;inset:0;z-index:1;
+    border-radius:10px;
+  }
+  .card--linked .meta a{position:relative;z-index:2}
   .card.featured{grid-column:1 / -1}
   .card-top{
     display:flex;align-items:center;justify-content:space-between;gap:12px;
@@ -315,8 +321,8 @@
     </a>
     <div class="nav-links">
       <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 </nav>
@@ -358,7 +364,8 @@
   <div class="wrap">
     <div class="grid">
 
-      <article class="card featured reveal">
+      <article class="card card--linked featured reveal">
+        <a class="card__link" href="projects/artventori.html" aria-label="View Artventori"></a>
         <div class="card-top">
           <span class="layer-id">S-01</span>
           <span class="badge badge-dev">In Development</span>
@@ -367,11 +374,12 @@
         <p class="pitch">Artventori is an artist inventory platform that helps working artists catalog their collections, track locations and status, and keep a clear record of every piece.</p>
         <div class="card-meta meta">
           <span class="stack">Artist Inventory Platform</span>
-          <a href="#contact">Follow progress</a>
+          <a href="projects/artventori.html">Follow progress</a>
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card card--linked reveal">
+        <a class="card__link" href="projects/artloop.html" aria-label="View ArtLoop"></a>
         <div class="card-top">
           <span class="layer-id">S-02</span>
           <span class="badge badge-dev">In Development</span>
@@ -380,11 +388,12 @@
         <p class="pitch">ArtLoop is a community platform where artists, organizations, and creative groups share works in progress, exchange thoughtful feedback, and build stronger local creative communities.</p>
         <div class="card-meta meta">
           <span class="stack">Creative Community Platform</span>
-          <a href="#contact">Follow progress</a>
+          <a href="projects/artloop.html">Follow progress</a>
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card card--linked reveal">
+        <a class="card__link" href="projects/assistli.html" aria-label="View Assistli"></a>
         <div class="card-top">
           <span class="layer-id">S-03</span>
           <span class="badge badge-dev">In Development</span>
@@ -393,11 +402,12 @@
         <p class="pitch">Assistli is an AI-powered business assistant that helps entrepreneurs organize ideas, create content, streamline workflows, and manage the day-to-day work of running a business.</p>
         <div class="card-meta meta">
           <span class="stack">AI Business Assistant</span>
-          <a href="#contact">Follow progress</a>
+          <a href="projects/assistli.html">Follow progress</a>
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card card--linked reveal">
+        <a class="card__link" href="projects/connectli.html" aria-label="View Connectli"></a>
         <div class="card-top">
           <span class="layer-id">S-04</span>
           <span class="badge badge-dev">In Development</span>
@@ -406,11 +416,12 @@
         <p class="pitch">Connectli is a client relationship platform that helps businesses organize contacts, manage conversations, and keep every opportunity moving forward.</p>
         <div class="card-meta meta">
           <span class="stack">Client Relationship Platform</span>
-          <a href="#contact">Follow progress</a>
+          <a href="projects/connectli.html">Follow progress</a>
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card card--linked reveal">
+        <a class="card__link" href="projects/snappcal.html" aria-label="View SnappCal"></a>
         <div class="card-top">
           <span class="layer-id">S-05</span>
           <span class="badge badge-dev">In Development</span>
@@ -419,11 +430,12 @@
         <p class="pitch">SnappCal is an AI-powered nutrition tracker that estimates calories from a single photo, making food logging fast, simple, and effortless.</p>
         <div class="card-meta meta">
           <span class="stack">AI Nutrition Tracker</span>
-          <a href="#contact">Follow progress</a>
+          <a href="projects/snappcal.html">Follow progress</a>
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card card--linked reveal">
+        <a class="card__link" href="projects/outfitly.html" aria-label="View Outfitly"></a>
         <div class="card-top">
           <span class="layer-id">S-06</span>
           <span class="badge badge-dev">In Development</span>
@@ -432,20 +444,21 @@
         <p class="pitch">Outfitly is a digital wardrobe planner that helps people organize their closet, create outfits, and confidently plan what to wear for every day, event, and season.</p>
         <div class="card-meta meta">
           <span class="stack">Digital Wardrobe Planner</span>
-          <a href="#contact">Follow progress</a>
+          <a href="projects/outfitly.html">Follow progress</a>
         </div>
       </article>
 
-      <article class="card reveal">
+      <article class="card card--linked reveal">
+        <a class="card__link" href="projects/invoicly.html" aria-label="View Invoicly"></a>
         <div class="card-top">
           <span class="layer-id">S-07</span>
           <span class="badge badge-concept">Concept</span>
         </div>
-        <h3>InvoiceSense</h3>
-        <p class="pitch">InvoiceSense helps freelancers and small businesses create professional invoices, track payments, and stay organized from estimate to payment.</p>
+        <h3>Invoicly</h3>
+        <p class="pitch">Invoicly helps freelancers and small businesses create professional invoices, track payments, and stay organized from estimate to payment.</p>
         <div class="card-meta meta">
           <span class="stack">Invoice & Payments Platform</span>
-          <a href="#contact">Follow progress</a>
+          <a href="projects/invoicly.html">Follow progress</a>
         </div>
       </article>
 
