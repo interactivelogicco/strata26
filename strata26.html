@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strata26 — Software built in layers</title>
+<meta name="description" content="Strata26 builds practical software for real-world life and work. Explore live products and projects in development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@800;900&family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --nav-stone:#FBFBF9;         /* solid brand stone */
+    --stone-section:#FBFBF9; /* solid stone from Projects down */
+    --graphite:#28282C;
+    --mid:#6F6E69;
+    --gold:#B8912F;
+    --gold-dark:#9A7620;
+    --hairline:#E5E2DA;
+    --band-h:104px;          /* regular stone band — base measurement */
+    --hero-large:calc(var(--band-h) * 2);
+    --stone-thin:calc(var(--band-h) * 0.3);
+    --hero-content-h:calc(var(--hero-large) * 0.75);
+    --band-cta-h:85px;
+    --hero-band-extra-h:24px; /* 50% of original 48px extra band */
+    --stone-medium-h:40px;
+    --hero-spacer:24px;
+    --band-cta-medium-gap:24px; /* white space between Band 3 and Band 4 */
+    --projects-header-h:calc(var(--hero-large) * 0.4);
+    --sans:'Schibsted Grotesk',system-ui,sans-serif;
+    --serif:'Instrument Serif',Georgia,serif;
+    --hero-sans:'Inter',var(--sans);
+    --hero-serif:'DM Serif Display',var(--serif);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--white);
+    color:var(--graphite);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Nav (stone band 1 — thinner masthead) ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--nav-stone);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .wordmark{
+    display:inline-flex;
+    align-items:center;
+    text-decoration:none;
+    line-height:0;
+  }
+  .wordmark-logo{
+    display:block;
+    height:40px;
+    width:auto;
+  }
+  .nav-links{display:flex;gap:32px}
+  .nav-links a{
+    color:var(--gold);text-decoration:none;font-size:.875rem;font-weight:500;
+    transition:color .2s;
+  }
+  .nav-links a:hover,.nav-links a:focus-visible{color:var(--gold-dark)}
+  a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+  /* ---------- Hero: editorial strata rhythm ---------- */
+  header{
+    background:var(--white);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  }
+  .hero-area{
+    width:100%;
+    display:flex;
+    align-items:center;
+    background:var(--white);
+  }
+  .hero-area--large{
+    min-height:var(--hero-large);
+    align-items:center;
+    padding-top:0;
+  }
+  .hero-intro{display:flex;flex-direction:column;gap:20px}
+  .hero-area--content{min-height:var(--hero-content-h)}
+  .hero-area--projects{
+    height:var(--projects-header-h);
+    min-height:0;
+  }
+  .hero-spacer{
+    width:100%;
+    flex-shrink:0;
+    background:var(--white);
+  }
+  .hero-spacer--thin{min-height:var(--hero-spacer)}
+  .stone-stripe{
+    width:100%;
+    flex-shrink:0;
+    background:var(--nav-stone);
+  }
+  .stone-stripe--thin{min-height:var(--stone-thin)}
+  .stone-stripe--cta{
+    height:var(--band-cta-h);
+    min-height:0;
+    margin-bottom:var(--band-cta-medium-gap);
+    display:flex;
+    align-items:center;
+  }
+  .stone-stripe--cta .wrap{width:100%}
+  .stone-stripe--medium{
+    height:var(--stone-medium-h);
+    min-height:0;
+  }
+  .hero-band--extra{
+    width:100%;
+    flex-shrink:0;
+    height:var(--hero-band-extra-h);
+    min-height:0;
+    background:var(--nav-stone);
+  }
+
+  .hero-area .wrap{width:100%}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold);
+  }
+  .eyebrow::before{
+    content:"";display:block;width:32px;height:1px;background:var(--gold);
+  }
+  h1{
+    font-family:var(--hero-sans);
+    font-weight:800;
+    color:var(--graphite);
+    font-size:clamp(2rem,5.2vw,3.8rem);
+    line-height:1.05;
+    letter-spacing:-.02em;
+    white-space:nowrap;   /* one continuous line inside its band */
+  }
+  h1 em{
+    font-family:var(--hero-serif);
+    font-style:italic;
+    font-weight:400;
+    color:var(--gold);
+    letter-spacing:0;
+  }
+  .hero-sub{
+    max-width:46ch;
+    color:var(--mid);
+    font-size:1.125rem;
+  }
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;
+    padding:12px 26px;
+    border-radius:6px;
+    font-size:.9rem;font-weight:600;
+    text-decoration:none;
+    transition:transform .15s,box-shadow .15s;
+  }
+  .btn-primary{background:var(--graphite);color:var(--white)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(40,40,44,.18)}
+  .btn-ghost{
+    color:var(--graphite);
+    border:1px solid var(--hairline);
+    background:transparent;
+  }
+  .btn-ghost:hover{border-color:var(--graphite)}
+
+  /* ---------- Sections (solid stone from Projects down) ---------- */
+  .stone{background:var(--stone-section)}
+  section{padding:88px 0;border-top:1px solid var(--hairline)}
+  .section-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    margin-bottom:48px;gap:16px;flex-wrap:wrap;
+  }
+  .hero-area--projects .section-head{margin-bottom:0}
+  .grid-section{padding-top:36px;border-top:none}
+  #projects{background:var(--white)}
+  #projects h2,#projects .section-label{color:var(--gold)}
+  h2{font-size:1.6rem;font-weight:600;letter-spacing:-.01em}
+  .section-label{
+    font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--mid);
+  }
+
+  /* ---------- Project grid ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  .card{
+    position:relative;
+    background:var(--white);
+    border:1px solid var(--hairline);
+    border-radius:10px;
+    padding:32px 28px 28px;
+    display:flex;flex-direction:column;gap:14px;
+    transition:transform .2s,box-shadow .2s,border-color .2s;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 32px rgba(40,40,44,.07);
+    border-color:#D8D4C9;
+  }
+  .card.featured{grid-column:1 / -1}
+  .card-top{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .layer-id{
+    font-size:.72rem;font-weight:600;letter-spacing:.12em;
+    color:var(--mid);
+  }
+  .badge{
+    font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    padding:4px 12px;border-radius:99px;
+    white-space:nowrap;
+  }
+  .badge-live{background:var(--gold);color:#fff}
+  .badge-beta{border:1px solid var(--gold);color:var(--gold)}
+  .badge-dev{border:1px dashed var(--mid);color:var(--mid)}
+  .badge-concept{border:1px dashed var(--mid);color:var(--mid)}
+  .card h3{font-size:1.35rem;font-weight:600;letter-spacing:-.01em}
+  .card .pitch{color:var(--mid);font-size:.95rem;max-width:52ch}
+  .card .meta{
+    margin-top:auto;padding-top:18px;
+    border-top:1px solid var(--hairline);
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    font-size:.8rem;color:var(--mid);
+  }
+  .card .meta a{
+    color:var(--graphite);font-weight:600;text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .card .meta a::after{content:"→";transition:transform .15s}
+  .card .meta a:hover::after{transform:translateX(3px)}
+  .stack{letter-spacing:.02em}
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;
+  }
+  .about-serif{
+    font-family:var(--serif);
+    font-size:1.7rem;line-height:1.35;
+    color:var(--graphite);
+    max-width:93%;
+  }
+  .about-serif em{
+    font-family:var(--hero-serif);
+    font-style:italic;
+    font-weight:400;
+    color:var(--gold);
+    font-size:1.12em;
+  }
+  .about-body p{color:var(--mid);margin-bottom:16px}
+  .about-body p:last-child{margin-bottom:0}
+
+  /* ---------- Contact / footer ---------- */
+  .contact{text-align:center;padding:100px 0}
+  .contact h2{font-size:2rem;margin-bottom:12px}
+  .contact p{color:var(--mid);margin-bottom:32px}
+  footer{
+    background:var(--stone-section);
+    border-top:1px solid var(--hairline);
+    padding:32px 0;
+  }
+  .foot-inner{
+    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+    font-size:.8rem;color:var(--mid);
+  }
+  .foot-strata{display:flex;flex-direction:column;gap:3px;width:64px}
+  .foot-strata i{display:block;height:1px;background:var(--hairline)}
+  .foot-strata i:nth-child(2){width:80%}
+  .foot-strata i:nth-child(3){width:60%;background:var(--gold)}
+
+  /* ---------- Motion ---------- */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:760px){
+    :root{--band-h:88px}
+    h1{white-space:normal;font-size:clamp(1.9rem,8vw,2.6rem)} /* allow wrap on small screens */
+    .grid{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr;gap:32px}
+    section{padding:64px 0}
+    .nav-links{gap:20px}
+    .nav-links a:nth-child(3){display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="#top">
+      <img class="wordmark-logo" src="images/Stratalogo.png" alt="Strata26" width="80" height="40">
+    </a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero: editorial strata rhythm -->
+<header id="top">
+  <div class="hero-area hero-area--large">
+    <div class="wrap hero-intro">
+      <p class="eyebrow">A software studio</p>
+      <h1>Software built in <em>layers</em></h1>
+    </div>
+  </div>
+  <div class="stone-stripe stone-stripe--thin" aria-hidden="true"></div>
+  <div class="hero-area hero-area--content">
+    <div class="wrap"><p class="hero-sub">Strata26 designs and builds practical tools for real-world life and work — shipped small, layered deliberately, and made to be used every day.</p></div>
+  </div>
+  <div class="stone-stripe stone-stripe--cta">
+    <div class="wrap">
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">Explore the projects</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+  <div class="stone-stripe stone-stripe--medium" aria-hidden="true"></div>
+</header>
+
+<div class="hero-spacer hero-spacer--thin" aria-hidden="true"></div>
+<div class="hero-band--extra" aria-hidden="true"></div>
+
+<div class="hero-area hero-area--projects" id="projects">
+  <div class="wrap section-head">
+    <h2>Projects</h2>
+    <span class="section-label">Current strata · 6 layers</span>
+  </div>
+</div>
+
+<section class="stone grid-section">
+  <div class="wrap">
+    <div class="grid">
+
+      <article class="card featured reveal">
+        <div class="card-top">
+          <span class="layer-id">S-01</span>
+          <span class="badge badge-dev">In Development</span>
+        </div>
+        <h3>Artventori</h3>
+        <p class="pitch">Artventori is an artist inventory platform that helps working artists catalog their collections, track locations and status, and keep a clear record of every piece.</p>
+        <div class="card-meta meta">
+          <span class="stack">Artist Inventory Platform</span>
+          <a href="#contact">Follow progress</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top">
+          <span class="layer-id">S-02</span>
+          <span class="badge badge-dev">In Development</span>
+        </div>
+        <h3>ArtLoop</h3>
+        <p class="pitch">ArtLoop is a community platform where artists, organizations, and creative groups share works in progress, exchange thoughtful feedback, and build stronger local creative communities.</p>
+        <div class="card-meta meta">
+          <span class="stack">Creative Community Platform</span>
+          <a href="#contact">Follow progress</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top">
+          <span class="layer-id">S-03</span>
+          <span class="badge badge-dev">In Development</span>
+        </div>
+        <h3>Assistli</h3>
+        <p class="pitch">Assistli is an AI-powered business assistant that helps entrepreneurs organize ideas, create content, streamline workflows, and manage the day-to-day work of running a business.</p>
+        <div class="card-meta meta">
+          <span class="stack">AI Business Assistant</span>
+          <a href="#contact">Follow progress</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top">
+          <span class="layer-id">S-04</span>
+          <span class="badge badge-dev">In Development</span>
+        </div>
+        <h3>Connectli</h3>
+        <p class="pitch">Connectli is a client relationship platform that helps businesses organize contacts, manage conversations, and keep every opportunity moving forward.</p>
+        <div class="card-meta meta">
+          <span class="stack">Client Relationship Platform</span>
+          <a href="#contact">Follow progress</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top">
+          <span class="layer-id">S-05</span>
+          <span class="badge badge-dev">In Development</span>
+        </div>
+        <h3>SnappCal</h3>
+        <p class="pitch">SnappCal is an AI-powered nutrition tracker that estimates calories from a single photo, making food logging fast, simple, and effortless.</p>
+        <div class="card-meta meta">
+          <span class="stack">AI Nutrition Tracker</span>
+          <a href="#contact">Follow progress</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top">
+          <span class="layer-id">S-06</span>
+          <span class="badge badge-dev">In Development</span>
+        </div>
+        <h3>Outfitly</h3>
+        <p class="pitch">Outfitly is a digital wardrobe planner that helps people organize their closet, create outfits, and confidently plan what to wear for every day, event, and season.</p>
+        <div class="card-meta meta">
+          <span class="stack">Digital Wardrobe Planner</span>
+          <a href="#contact">Follow progress</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-top">
+          <span class="layer-id">S-07</span>
+          <span class="badge badge-concept">Concept</span>
+        </div>
+        <h3>InvoiceSense</h3>
+        <p class="pitch">InvoiceSense helps freelancers and small businesses create professional invoices, track payments, and stay organized from estimate to payment.</p>
+        <div class="card-meta meta">
+          <span class="stack">Invoice & Payments Platform</span>
+          <a href="#contact">Follow progress</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <p class="about-serif reveal">Good software is geological. small, deliberate <em>layers</em> add up to something solid.</p>
+    <div class="about-body reveal">
+      <p>Strata26 is an independent software studio building thoughtful tools for creative people and small businesses.</p>
+      <p>Every product starts with a real problem. It ships as the simplest version that solves it, then grows one layer at a time. No bloat. No feature sprawl. Just software that earns its place in your day.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact stone">
+  <div class="wrap">
+    <h2>Follow the journey.</h2>
+    <p>Building software takes time. Follow along as each product grows one layer at a time.</p>
+    <a class="btn btn-primary" href="mailto:hellostrata26@gmail.com">hellostrata26@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 Strata26. All rights reserved.</span>
+    <div class="foot-strata" aria-hidden="true"><i></i><i></i><i></i></div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
