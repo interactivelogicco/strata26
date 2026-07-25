@@ -10,10 +10,10 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
 <title>About Strata26</title>
-<meta name="description" content="Strata26 is an independent software studio creating practical tools for creative people and small businesses. Software, built in layers.">
+<meta name="description" content="Strata26 is changing the way software works. Calm, layered tools designed to feel more human, give attention back, and get out of the way.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@800;900&family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display:ital@1&family=Inter:wght@800;900&family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
     --white:#FFFFFF;
@@ -69,9 +69,16 @@
     padding:72px 0 64px;
     background:var(--white);
   }
-  .page-hero h1{
-    font-size:clamp(2.2rem,5vw,3.2rem);
+  .page-eyebrow{
+    font-size:.75rem;
     font-weight:600;
+    letter-spacing:.08em;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  .page-hero h1{
+    font-size:clamp(1.85rem,4.15vw,2.65rem);
+    font-weight:700;
     letter-spacing:-.02em;
     line-height:1.05;
     margin-bottom:16px;
@@ -81,7 +88,7 @@
     font-size:clamp(1.5rem,3vw,1.85rem);
     line-height:1.3;
     color:var(--graphite);
-    margin-bottom:24px;
+    margin-bottom:0;
     max-width:52ch;
   }
   .hero-line em{
@@ -90,31 +97,38 @@
     font-weight:400;
     color:var(--gold);
   }
-  .page-intro{
-    max-width:62ch;
-    color:var(--mid);
-    font-size:1.125rem;
-  }
 
   section{padding:88px 0;border-top:1px solid var(--hairline)}
   .stone{background:var(--stone-section)}
-  h2{font-size:1.6rem;font-weight:600;letter-spacing:-.01em;margin-bottom:20px}
-  .section-copy{color:var(--mid);max-width:62ch}
-  .section-copy p{margin-bottom:16px}
+  h2{font-size:1.6rem;font-weight:600;letter-spacing:-.01em;margin-bottom:28px}
+  .section-copy{color:var(--mid);max-width:62ch;line-height:1.7}
+  .section-copy p{margin-bottom:30px}
   .section-copy p:last-child{margin-bottom:0}
 
   .closing{text-align:center;padding:100px 0}
   .closing__statement{
-    margin:0 auto 16px;
+    margin:0 auto 20px;
   }
-  .closing__question{
-    font-family:var(--hero-serif);
-    font-style:italic;
-    font-weight:400;
-    font-size:clamp(1.5rem,3.2vw,1.85rem);
-    line-height:1.3;
-    color:var(--gold);
+  .closing__manifesto{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
     margin:0 auto;
+  }
+  .closing__line{
+    font-family:'DM Sans',var(--sans);
+    font-size:clamp(1.3rem,2.5vw,1.55rem);
+    font-weight:400;
+    line-height:1.4;
+    letter-spacing:0;
+    color:var(--mid);
+    margin:0;
+    text-align:center;
+    white-space:nowrap;
+  }
+  .closing__line--final{
+    color:var(--gold);
   }
 
   .btn{
@@ -151,6 +165,7 @@
     .page-hero{padding:56px 0 48px}
     .nav-links{gap:20px}
     .nav-links a:nth-child(3){display:none}
+    .closing__line{white-space:normal}
   }
 </style>
 </head>
@@ -171,78 +186,90 @@
 
 <section class="page-hero">
   <div class="wrap">
-    <h1>About Strata26</h1>
+    <p class="page-eyebrow">About Strata26</p>
+    <h1>We’re changing the way software works.</h1>
     <p class="hero-line">Software built in <em>layers</em>.</p>
-    <p class="page-intro">Strata26 is an independent software studio creating practical tools for creative people and small businesses. Every product begins with a real problem, ships as the simplest version that solves it, and grows deliberately over time.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Good software is geological.</h2>
     <div class="section-copy">
-      <p>Great software rarely arrives all at once.</p>
-      <p>Like geological strata, it forms layer by layer. One thoughtful decision supports the next until something lasting begins to emerge.</p>
-      <p>That's how every Strata26 product is built: slowly, intentionally, and without unnecessary complexity.</p>
+      <p>Software has never been more capable, and it has never asked more of us. Every year brings more features, more dashboards, more notifications, more automation, and now more AI. Somehow, the result is that using software feels more exhausting than it did ten years ago.</p>
+      <p>At Strata26, I believe that is because the industry has spent a long time answering the wrong question. Almost everyone is racing to answer <em>what else can software do?</em> The question I am more interested in is <em>what should software feel like to use?</em> Everything built at Strata26 starts there.</p>
     </div>
   </div>
 </section>
 
 <section class="stone">
   <div class="wrap">
-    <h2>Why we build this way.</h2>
+    <h2>Calm is a feature.</h2>
     <div class="section-copy">
-      <p>Modern software often tries to solve every problem at once. Features multiply, interfaces become crowded, and the original purpose gets buried.</p>
-      <p>We believe useful software does the opposite.</p>
-      <p>Start with one problem.</p>
-      <p>Solve it well.</p>
-      <p>Add only what makes the product genuinely better.</p>
+      <p>Most software is built to capture your attention. Strata26 is built to give it back.</p>
+      <p>A painter should be thinking about the painting, a writer about the sentence in front of them, and a business owner about the customer they are serving, not about the tool sitting in between. The best software does not compete with your work for the space in your head. It supports what you are doing quietly, and then it gets out of the way.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Small by design.</h2>
+    <h2>Gallery Computing</h2>
     <div class="section-copy">
-      <p>Every Strata26 product has a narrow purpose.</p>
-      <p>Artventori helps artists manage their work.</p>
-      <p>Connectli helps businesses manage relationships.</p>
-      <p>Outfitly helps people organize their wardrobe.</p>
-      <p>None of these products try to become everything.</p>
-      <p>They simply try to become indispensable at one thing.</p>
+      <p>The name comes from a real place. Think about walking into a well-designed gallery. Nothing shouts at you, everything has been given a place, and the room itself does the work of guiding you through it. You always know where you are and what deserves your attention, and no one had to tell you.</p>
+      <p>That is how software should feel. It should not feel like a cockpit crowded with instruments, a feed engineered to keep you scrolling, or one more inbox with something to demand of you. It should feel like a calm, deliberate space where your ideas have room to breathe.</p>
     </div>
   </div>
 </section>
 
 <section class="stone">
   <div class="wrap">
-    <h2>Built in public.</h2>
+    <h2>Software designed the way artists work.</h2>
     <div class="section-copy">
-      <p>Every project evolves one layer at a time.</p>
-      <p>Ideas become sketches.</p>
-      <p>Sketches become prototypes.</p>
-      <p>Prototypes become products.</p>
-      <p>Progress is shared openly because thoughtful software deserves thoughtful iteration.</p>
+      <p>Most software starts with engineering and treats design as something that happens at the end. At Strata26, those two things are inseparable. Long before a button is placed on a screen, I am thinking about how the experience should feel. The interface is not decoration layered on top of the product. It is part of the product itself.</p>
+      <p>As an artist, designer, and software developer, I have learned something the industry often treats as optional: environment shapes experience. Whitespace, typography, visual rhythm, and hierarchy are not finishing touches applied at the end. They are the substance of how something feels to use. Every choice on a screen communicates something, whether it was intended to or not. Design is not decoration. Design is behavior.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Behind Strata26</h2>
+    <h2>Good software grows in layers.</h2>
     <div class="section-copy">
-      <p>Strata26 was founded by artist, designer, and software developer Dei Bilunka.</p>
-      <p>After years of creating visual work, the same design philosophy naturally extended into software: thoughtful systems, quiet interfaces, and products that feel calm to use.</p>
-      <p>Every Strata26 application is designed, written, and refined with the same attention given to any well-crafted creative work.</p>
+      <p>There is a reason the company is called Strata26.</p>
+      <p>Great software almost never arrives fully formed. Like geological strata, the systems that last are built layer by layer, each one resting on solid ground and carrying whatever comes next. That takes patience, and it takes restraint.</p>
+      <p>Rather than adding features simply because they are possible, every idea is asked the same question: <em>does this make the experience better?</em> When the honest answer is no, it does not ship.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stone">
+  <div class="wrap">
+    <h2>Technology should feel more human, not less.</h2>
+    <div class="section-copy">
+      <p>Artificial intelligence is changing how software gets made, and I find that genuinely exciting. I am also watching a lot of companies turn AI into one more source of noise and one more thing blinking for attention. That is not the direction Strata26 is interested in.</p>
+      <p>AI is a remarkable tool for exploring ideas faster, removing repetitive work, and building more thoughtful software. Technology should adapt to people, not ask people to adapt to technology.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Why build this way?</h2>
+    <div class="section-copy">
+      <p>Underneath all of it is something fairly simple: everyone is carrying more than they can comfortably hold. A modern working day asks people to keep dozens of open loops in their head at once, and most software responds by handing them a few more.</p>
+      <p>I believe a good tool should carry part of that weight instead of adding to it. It should remember what you have forgotten, keep important things where you expect to find them, and quietly support your work without constantly asking for more attention. That is why every product at Strata26 is designed to be calm, predictable, beautiful, and intentional. This is not because minimalism is fashionable, but because thoughtful software should leave people with more energy than it takes from them.</p>
     </div>
   </div>
 </section>
 
 <section class="closing stone">
   <div class="wrap">
-    <h2 class="closing__statement">Every layer begins with a single question.</h2>
-    <p class="closing__question">What is the smallest useful thing we can build?</p>
+    <h2 class="closing__statement">This is Strata26.</h2>
+    <div class="closing__manifesto">
+      <p class="closing__line">The work should be the loudest thing in the room.</p>
+      <p class="closing__line">Every tool is a room someone has to live in.</p>
+      <p class="closing__line closing__line--final">I would like mine to be worth walking into.</p>
+    </div>
   </div>
 </section>
 
